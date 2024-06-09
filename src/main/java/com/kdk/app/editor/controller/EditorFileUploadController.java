@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,9 +36,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/editor")
 public class EditorFileUploadController {
 
+	@Value("${upload.folder}")
+	private String uploadFolder;
+
 	// WebMvcConfig addResourceHandlers
 	private final String RESOURCE_PATH = "/upload/";
-	private final String WEB_APP_ROOT_PATH = "D:/upload/";
 	private final String EDITOR_UPLOAD_PATH = "editor";
 
 	@PostMapping("/image-upload")
@@ -51,7 +54,9 @@ public class EditorFileUploadController {
 			 * main 메소드에서는 되는데...
 			 */
 
-			String sUploadPath = WEB_APP_ROOT_PATH + EDITOR_UPLOAD_PATH;
+			String sWebAppRootPath = uploadFolder.replace("file:", "");
+
+			String sUploadPath = sWebAppRootPath + EDITOR_UPLOAD_PATH;
 
 			File dir = new File(sUploadPath);
 			if ( !dir.exists() ) {
