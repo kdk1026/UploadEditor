@@ -17,6 +17,9 @@
 	</div>
 
 	<script>
+		const content = '<h1>테스트</h1><br/><p>테스트1234</p>';
+		document.querySelector('#editor').innerHTML = content;
+
 		const editor = new toastui.Editor({
 			el: document.querySelector('#editor'),
 			height: '500px',

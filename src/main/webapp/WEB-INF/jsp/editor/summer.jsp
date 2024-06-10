@@ -19,6 +19,9 @@
 	</div>
 
 	<script>
+		const content = '<h1>테스트</h1><br/><p>테스트1234</p>';
+		document.querySelector('#editor').innerHTML = content;
+
 		$('#editor').summernote({
 			tabsize: 2,
 			height: 500,

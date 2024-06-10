@@ -21,6 +21,9 @@
 	</div>
 
 	<script>
+		const content = '<h1>테스트</h1><br/><p>테스트1234</p>';
+		document.querySelector('#editor').innerHTML = content;
+
 		ClassicEditor
 			.create( document.querySelector( '#editor' ), {
 				language: 'ko',
