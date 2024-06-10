@@ -28,4 +28,28 @@ public class EditorController {
 		return mav;
 	}
 
+	@GetMapping("/ck")
+	public ModelAndView ck() {
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("/editor/ck");
+		return mav;
+	}
+
+	@GetMapping("/summer")
+	public ModelAndView summer() {
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("/editor/summer");
+		return mav;
+	}
+
+	@GetMapping("/quill")
+	public ModelAndView quill() {
+		ModelAndView mav = new ModelAndView();
+
+		mav.setViewName("/editor/quill");
+		return mav;
+	}
+
 }

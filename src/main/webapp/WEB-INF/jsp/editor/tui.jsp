@@ -17,40 +17,40 @@
 	</div>
 
 	<script>
-	const editor = new toastui.Editor({
-		el: document.querySelector('#editor'),
-		height: '500px',
-		initialEditType: 'wysiwyg',
-		previewStyle: 'vertical',
-		language: 'ko-KR',
-		hooks: {
-			addImageBlobHook: function (blob, callback) {
-				fnImageUpload(blob, function(data) {
-					const fileUrl = data;
-					callback(fileUrl);
-				});
+		const editor = new toastui.Editor({
+			el: document.querySelector('#editor'),
+			height: '500px',
+			initialEditType: 'wysiwyg',
+			previewStyle: 'vertical',
+			language: 'ko-KR',
+			hooks: {
+				addImageBlobHook: function (blob, callback) {
+					fnImageUpload(blob, function(data) {
+						const fileUrl = data;
+						callback(fileUrl);
+					});
+				}
 			}
-		}
-	});
-
-	async function fnImageUpload(blob, callback) {
-		const formData = new FormData();
-		formData.append('image', blob);
-
-		let fileUrl;
-
-		await fetch('/editor/image-upload', {
-			method: 'post',
-			body: formData
-		})
-		.then((res) => {
-			return res.json();
-		})
-		.then((data) => {
-			fileUrl = data.fileUrl;
-			callback(fileUrl);
 		});
-	}
+
+		async function fnImageUpload(blob, callback) {
+			const formData = new FormData();
+			formData.append('image', blob);
+
+			let fileUrl;
+
+			await fetch('/editor/image-upload', {
+				method: 'post',
+				body: formData
+			})
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				fileUrl = data.fileUrl;
+				callback(fileUrl);
+			});
+		}
 	</script>
 
 </body>

@@ -8,11 +8,12 @@
 </head>
 <body>
 
-	<script>
-	window.onload = function() {
-		location.href = '/editor/tui';
-	}
-	</script>
+	<div>
+		<a href="/editor/tui">TOAST UI Editor</a> |&nbsp;
+		<a href="/editor/ck">CKEditor</a> |&nbsp;
+		<a href="/editor/summer">summernote</a> |&nbsp;
+		<a href="/editor/quill">Quill</a>
+	</div>
 
 </body>
 </html>
